@@ -1,0 +1,30 @@
+.left_show{
+    width:420px;
+    height:540px;
+    margin-right:20px;
+}
+.md_img_wh{
+    width:420px;
+}
+.sm_square{
+    width:420px;
+    height:60px;
+    float:left;
+}
+.sm_img_wh{
+    width:60px;
+    height:60px;
+    margin:0px 7px;
+    float:left;
+}
+.arrow{
+    background:rgb(238, 238, 238);
+    width:24px;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+}
+
+
+
+

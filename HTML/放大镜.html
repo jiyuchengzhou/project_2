@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .md_400{
+            width:400px;
+            height:400px;
+        }
+        .bg_800{
+            position:relative;
+            width:800px;
+            height:800px;
+        }
+        .o_hidden{
+            overflow: hidden;
+            display:none;
+        }
+        .mark{
+            width:200px;
+            height:200px;
+            display: none;
+            background: red;
+            opacity:0.5;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- 中图区 -->
+    <div class="md_400 ">
+        <img class="md_400 md_pic" src="./image/details/5de0cd8292dad.jpg" alt="">
+        <div class="mark"></div>
+    </div>
+    <!-- 大图区 -->
+    <div class="md_400 o_hidden ">
+        <img class="bg_800 bg_pic" src="./image/details/5de0cd8292dad.jpg" alt="">
+    </div>
+</body>
+<script>
+    var md_pic=document.querySelector(".md_pic");
+    var bg_pic=document.querySelector(".bg_pic");
+    var mark=document.querySelector(".mark");
+    var bg_hidden=document.querySelector(".o_hidden")
+    md_pic.onmousemove=function(e){
+        e=e || window.event;
+        var md_left=e.offsetX;
+        var md_top=e.offsetY;
+        bg_hidden.style.display="block";
+        console.log(md_left,md_top);
+        bg_pic.style.top="-"+md_top*2+"px";
+        bg_pic.style.left="-"+md_left*2+"px";
+        mark.style.display="block";
+        mark.style.left=md_left>100?md_left-100+"px":"0px";
+        mark.style.top=md_top>100?md_top-500+"px":"-400px";
+        console.log(bg_pic.style.top,bg_pic.style.left)
+        
+    }
+    md_pic.onmouseleave=function(){
+        mark.style.display="none";
+        bg_hidden.style.display="none";
+    }
+</script>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http:////at.alicdn.com/t/font_1561878_5ah3w6nf123.css">
+<!-- 	<link rel="stylesheet" href="../css/index.css"> -->
+	<link rel="stylesheet" href="index.css">
+	<style>
+	</style>
+</head>
+<body>
+	<!-- 第一排 -->
+	<header class="w-100 headerwh">
+		<div class="headerwh mcenter">
+			<i class="iconfont icondianhua"></i>
+			<span class="h-line-h h-phone">028-85190528</span>
+			<span>(8:00-18:00)</span>
+			<span class="fl-r">
+				<a href="" class="h-line-h h-r-font">登录</a>
+				|
+				<a href="" class="h-r-font">免费注册</a>
+				|
+				<a href="" class="h-r-font">客户服务</a>
+				<i class="iconfont icondaohang"></i>
+			</span>
+		</div>
+	</header>
+<!-- 	第二排 -->
+	<div class="w-100 mt-10 h-80">
+		<div class="body-wh h-80">
+			<img src="./image/logo.jpg" alt="">
+		</div>
+	</div>
+    <!-- 主体 -->
+    <div class="bg-red h-500 w-100">
+        <div class="mcenter log-wh ">
+            <div class="form-login text-center plr-10 border-box">
+                <h3 class="" style="clear:both;">用户登录</h3>   
+                <div class="login-border mt-10">
+                    <i class="iconfont iconuser "></i>
+                    <input id="uname" class="log-lineh border-0" type="text" placeholder="用户名/登录名/ 已验证手机">
+                </div>
+                <div class="login-border mt-10 ">
+                    <i class="iconfont iconmima"></i>
+                     <input id="upwd" class="log-lineh border-0" type="passward" placeholder="密码">
+                </div>
+                <div class="login-border mt-10">
+                    <input class="log-lineh border-0" type="text" placeholder="验证码">
+                </div>
+                <div class=" mt-10">
+                    <span class="f-left"><input type="checkbox">自动登录</span>
+                    <a class="fl-r ">忘记密码</a>
+                </div>
+<!--                 <input onclick="login()" type="button" class="login mt-10" value="登录"> -->
+								<button onclick="login()" class="login mt-10">
+									登录
+								</button>
+                <div class="mt-10">
+                    <a href="">加盟商登录</a>
+                    <a href="" class="fl-r">还没有账号？免费注册</a>
+                </div>
+								<div id="msg" style="color:red; background:blue"></div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- 底部  -->
+	<footer class="bg-333 h-300">
+		<div class=" body-wh text-center footer-font pt-10">
+			<div class="mt-20">客服电话：028-85190528（周一至周日 8:00-18:00）</div>
+			<div class="mt-20">客户： <img src="./image/button_121.gif" alt="">3551641627</div>
+			<div class="mt-20">
+				<a href="" class="font-666"><img src="./image/tmall.png" alt=""><span >快力文天猫店</span> </a>
+				<a href="" class="font-666"><img src="./image/jd.png" alt=""><span >快力文京东店</span> </a>
+				<a href="" class="font-666"><img src="./image/taobao.png" alt=""><span >快力文淘宝店</span></a>
+			</div>
+			<div class="mt-20"> <a href="" class="font-666"> 站长统计</a></div>
+			<hr>
+			<div class="mt-20">Copyright&nbsp;&nbsp; ©&nbsp;&nbsp; 2013-2017快力文办公用品商城版权所有ICP备案号：蜀ICP备17038640号</div>
+			<div class="mt-20">技术支持：<a href="" class="font-666">成都极谱科技有限公司</a> </div>
+		</div>
+	</footer>
+	<script>
+			function login(){
+				var $uname=uname.value;
+				var $upwd=upwd.value;
+				if(!$uname){
+					msg.innerHTML="用户名为空";
+					return;
+				}
+				if(!$upwd){
+					msg.innerHTML="密码为空";
+					return;
+				}
+				//1.创建xhr对象
+				var xhr=new XMLHttpRequest();
+				//4.接收响应
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var result=xhr.responseText;
+						if(result==1){
+							msg.innerHTML="登录成功";
+						}else{
+							msg.innerHTML="用户名密码错误";
+						}
+					}
+				}
+				//2.创建请求
+				xhr.open("get","/pro/v1/login/"+$uname+"&"+$upwd,true);
+				//3.发送请求
+				xhr.send();
+			}
+		</script>
+</body>
+</html>
