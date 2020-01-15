@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="./js/jquery-1.11.3.js"></script>
 	<link rel="stylesheet" href="http:////at.alicdn.com/t/font_1561878_5ah3w6nf123.css">
 <!-- 	<link rel="stylesheet" href="../css/index.css"> -->
 	<link rel="stylesheet" href="index.css">
@@ -17,9 +18,9 @@
 			<span class="h-line-h h-phone">028-85190528</span>
 			<span>(8:00-18:00)</span>
 			<span class="fl-r">
-				<a href="" class="h-line-h h-r-font">登录</a>
+				<a href="login.html" class="h-line-h h-r-font">登录</a>
 				|
-				<a href="" class="h-r-font">免费注册</a>
+				<a href="register.html" class="h-r-font">免费注册</a>
 				|
 				<a href="" class="h-r-font">客户服务</a>
 				<i class="iconfont icondaohang"></i>
@@ -29,7 +30,7 @@
 <!-- 	第二排 -->
 	<div class="w-100 mt-10 h-80">
 		<div class="body-wh h-80">
-			<img src="./image/logo.jpg" alt="">
+			<img id="f_logo" src="./image/logo.jpg" alt="">
 		</div>
 	</div>
     <!-- 主体 -->
@@ -43,7 +44,7 @@
                 </div>
                 <div class="login-border mt-10 ">
                     <i class="iconfont iconmima"></i>
-                     <input id="upwd" class="log-lineh border-0" type="passward" placeholder="密码">
+                     <input id="upwd" class="log-lineh border-0" type="password" placeholder="密码">
                 </div>
                 <div class="login-border mt-10">
                     <input class="log-lineh border-0" type="text" placeholder="验证码">
@@ -53,7 +54,7 @@
                     <a class="fl-r ">忘记密码</a>
                 </div>
 <!--                 <input onclick="login()" type="button" class="login mt-10" value="登录"> -->
-								<button onclick="login()" class="login mt-10">
+								<button id="btn"  class="login mt-10">
 									登录
 								</button>
                 <div class="mt-10">
@@ -82,35 +83,61 @@
 		</div>
 	</footer>
 	<script>
-			function login(){
-				var $uname=uname.value;
-				var $upwd=upwd.value;
-				if(!$uname){
+
+		$(function(){
+			//跳转首页
+			$("#f_logo").click(function(){
+				window.location.href="http://127.0.0.1:8080/index.html";
+			})
+			$("#btn").click(
+				function (){
+				var uname=$("#uname").val()
+				var upwd=$("#upwd").val()
+				// var $uname=uname.value;
+				// var $upwd=upwd.value;
+				if(!uname){
 					msg.innerHTML="用户名为空";
 					return;
 				}
-				if(!$upwd){
+				if(!upwd){
 					msg.innerHTML="密码为空";
 					return;
 				}
-				//1.创建xhr对象
-				var xhr=new XMLHttpRequest();
-				//4.接收响应
-				xhr.onreadystatechange=function(){
-					if(xhr.readyState==4&&xhr.status==200){
-						var result=xhr.responseText;
+			// 	//1.创建xhr对象
+			// 	var xhr=new XMLHttpRequest();
+			// 	//4.接收响应
+			// 	xhr.onreadystatechange=function(){
+			// 		if(xhr.readyState==4&&xhr.status==200){
+			// 			var result=xhr.responseText;
+			// 			if(result==1){
+			// 				msg.innerHTML="登录成功";
+			// 			}else{
+			// 				msg.innerHTML="用户名密码错误";
+			// 			}
+			// 		}
+			// 	}
+			// 	//2.创建请求
+			// 	xhr.open("get","/pro/v1/login/"+$uname+"&"+$upwd,true);
+			// 	//3.发送请求
+			// 	xhr.send();
+				$.ajax({
+					url:'http://127.0.0.1:8080/klw/login',
+					type:'get',
+					data:{uname,upwd},
+					dataType:'json',
+					success:function(result){
+						console.log(result)
 						if(result==1){
-							msg.innerHTML="登录成功";
+							 msg.innerHTML="登录成功";
+							 window.location.href="http://127.0.0.1:8080/index.html";
 						}else{
-							msg.innerHTML="用户名密码错误";
-						}
+			 				msg.innerHTML="用户名密码错误";
+			 			}
 					}
+				})
 				}
-				//2.创建请求
-				xhr.open("get","/pro/v1/login/"+$uname+"&"+$upwd,true);
-				//3.发送请求
-				xhr.send();
-			}
+			)	
+})
 		</script>
 </body>
 </html>

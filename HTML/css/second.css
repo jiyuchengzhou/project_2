@@ -1,0 +1,23 @@
+ul{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+ul>li{
+    list-style: none;
+    border:1px solid #ccc;
+    padding:5px 10px;
+    margin:0 5px;
+    border-radius: 3px;
+
+}
+li:first-child{
+color:red
+}
+li:last-child{
+    color:red;
+}
+.bg_li_selected{
+    background:yellow;
+    color:red;
+}

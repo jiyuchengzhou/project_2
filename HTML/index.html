@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="./js/jquery-1.11.3.js"></script>
 	<!-- 	<link rel="stylesheet" href="../swiper/swiper.css"> -->
 	<link rel="stylesheet" href="swiper/swiper.css">
 	<!-- 	<script src="../swiper/swiper.min.js" type="text/javascript" charset="utf-8"></script> -->
@@ -25,9 +26,9 @@
 			<span class="h-line-h h-phone">028-85190528</span>
 			<span>(8:00-18:00)</span>
 			<span class="fl-r">
-				<a href="" class="h-line-h h-r-font">登录</a>
+				<a href="login.html" class="h-line-h h-r-font">登录</a>
 				|
-				<a href="" class="h-r-font">免费注册</a>
+				<a href="register.html" class="h-r-font">免费注册</a>
 				|
 				<a href="" class="h-r-font">客户服务</a>
 				<i class="iconfont icondaohang"></i>
@@ -35,34 +36,34 @@
 		</div>
 	</header>
 <!-- 	第二排  搜索框-->
-	<div class="w-100 mt-10 h-120 clear-fix">
-		<div class="body-wh h-120">
-            <img class="f-left" src="../image/logo.jpg" alt="">
-            <div class="f-left position-r search-mxy">
-                <img class="f-left h-40 position-a search-xy" src="./image/search.png" alt="">
-                <input class="border-0 input-index" type="text" placeholder="请输入关键词">
-                <input class="input-index2" type="button" value="搜索" >
-            </div>
-            <div class="f-left shop">
-                <a class="d-block" href="">
-                    <img class="bg-gwc f-left"  src="./image/gwc.png" alt="">
-                    <div class="f-left font-white line-h40">去购物车结算</div>
-                </a>
-            </div>
-            <div></div>
+<div class="w-100 mt-10 h-120 clear-fix">
+	<div class="body-wh h-120">
+		<img id="f_logo" class="f-left" src="./image/logo.jpg" alt="">
+		<div class="f-left position-r search-mxy">
+			<img class="f-left h-40 position-a search-xy" src="./image/search.png" alt="">
+			<input id="mh_select" class="border-0 input-index" type="text" placeholder="请输入关键词">
+			<input id="mh_click" class="input-index2" type="button" value="搜索" >
 		</div>
-    </div>
+		<div class="f-left shop">
+			<a class="d-block" href="cart.html">
+				<img class="bg-gwc f-left"  src="./image/gwc.png" alt="">
+				<div class="f-left font-white line-h40">去购物车结算</div>
+			</a>
+		</div>
+		<div></div>
+	</div>
+</div>
 
     <!-- 导航栏 -->
 	<nav>
 		<div class="w-100 h-48 bg-nav">
 			<div class=" body-wh bg-nav h-48">
 				<span class="nav-a">全部商品</span>
-				<a class="nav-a nav-hover" href="">首页</a>
-				<a class="nav-a nav-hover" href="">复印机租赁</a>
-				<a class="nav-a nav-hover" href="">办公文具</a>
-				<a class="nav-a nav-hover" href="">办公用纸</a>
-				<a class="nav-a nav-hover" href="">办公设备</a>
+				<a class="nav-a nav-hover" href="index.html">首页</a>
+				<a class="nav-a nav-hover" href="second.html">复印机租赁</a>
+				<a class="nav-a nav-hover" href="second.html">办公文具</a>
+				<a class="nav-a nav-hover" href="second.html">办公用纸</a>
+				<a class="nav-a nav-hover" href="second.html">办公设备</a>
 				<a class="nav-a nav-hover" href="">加入我们</a>
 			</div>
 		</div>
@@ -70,13 +71,13 @@
 
 	<!-- 轮播图 -->
 	
-	<div>
+	<div ><div >
 		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide"> <a href=""> <img src="image/carousel/19111105GR05FH76.jpg" alt=""></a></div>
-				<div class="swiper-slide"><a href=""><a href=""><img src="image/carousel/19112559FQ50QM31.jpg" alt=""></a></div>
-				<div class="swiper-slide"><a href=""></a><img src="image/carousel/HPEW191111584174.jpg" alt=""></a></div>
-				<div class="swiper-slide"><a href=""></a><img src="image/carousel/XCIK190805290186.jpg" alt=""></a></div>
+			<div class="swiper-wrapper" style="text-align:center; ">
+				<div  class="swiper-slide"> <a href=""> <img  src="image/carousel/19111105GR05FH76.jpg" alt=""></a></div>
+				<div class="swiper-slide"><a href=""><a href=""><img  src="image/carousel/19112559FQ50QM31.jpg" alt=""></a></div>
+				<div class="swiper-slide"><a href=""></a><img  src="image/carousel/HPEW191111584174.jpg" alt=""></a></div>
+				<div class="swiper-slide"><a href=""></a><img  src="image/carousel/XCIK190805290186.jpg" alt=""></a></div>
 			</div>
 			<!-- 如果需要分页器 -->
 			<div class="swiper-pagination"></div>
@@ -86,10 +87,10 @@
 			
 			
 		</div>
-	</div>
+	</div></div>
    
 	<!-- 商品列表 -->
-	<div class="w-100 bg-body">
+	<div class="w-100 bg-body" style="min-height:400px;" >
 		<div id="repeat_product" class="onlybody-wh bg-body clear-fix">
 			<!-- <div class="list_product">
 				<div class="w-100 h-100 ">
@@ -127,4 +128,5 @@
 <!-- 轮播图JS -->
 <!-- <script src="../js/index.js" type="text/javascript" charset="utf-8"></script> -->
 <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/mh_select.js"></script>
 </html>

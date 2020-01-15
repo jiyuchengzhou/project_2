@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="./js/jquery-1.11.3.js"></script>
 	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1561878_4d107q7mra4.css">
 	<!-- <link rel="stylesheet" href="../js/rejister.js"> -->
 <!-- 	<link rel="stylesheet" href="../css/index.css"> -->
@@ -18,9 +19,9 @@
 			<span class="h-line-h h-phone">028-85190528</span>
 			<span>(8:00-18:00)</span>
 			<span class="fl-r">
-				<a href="" class="h-line-h h-r-font">登录</a>
+				<a href="login.html" class="h-line-h h-r-font">登录</a>
 				|
-				<a href="" class="h-r-font">免费注册</a>
+				<a href="register.html" class="h-r-font">免费注册</a>
 				|
 				<a href="" class="h-r-font">客户服务</a>
 				<i class="iconfont icondaohang"></i>
@@ -30,7 +31,7 @@
 <!-- 	第二排 -->
 	<div class="w-100 mt-10 h-80">
 		<div class="body-wh h-80">
-			<img src="./image/logo.jpg" alt="">
+			<img id="f_logo" src="./image/logo.jpg" alt="">
 		</div>
 	</div>
 	<hr>
@@ -41,7 +42,7 @@
 			<div class="register-wh ">
 				<h3>用户注册</h3>
 				<div class="w-480 f-left">
-				<form method="post" action="/user/reg">
+				<!-- <form method="post" action="/user/reg"> -->
 					<div class="reg-border mt-10">
 					
 						<span class="reg-lineh reg-font ml-20">
@@ -49,7 +50,7 @@
 							<span class="">*</span>
 							用 户 名
 						</span>
-						<input id="_name"   name="uname" onfocus="uname_msg()" onblur="uname_bmsg()" type="text" class="border-0 reg-font"  placeholder="您的用户名和登录名" />
+						<input id="_name"   name="uname"  type="text" class="border-0 reg-font"  placeholder="您的用户名和登录名" />
 						<span id="i_uname" class=" fl-r reg-lineh color-red">
 							请输入6-20位字符
 						</span>
@@ -59,7 +60,7 @@
 							<span class="">*</span>
 							设置密码
 						</span>
-						<input id="_upwd" name="upwd" onblur="upwd_bmsg()" type="password" class="border-0 reg-font"  placeholder="6-32位数字+英文字母密码" />
+						<input id="_upwd" name="upwd"  type="password" class="border-0 reg-font"  placeholder="6-32位数字+英文字母密码" />
 						<span id="i_upwd" class=" fl-r reg-lineh color-red">
 							6-32位数字+英文
 						</span>
@@ -69,7 +70,7 @@
 							<span class="">*</span>
 							确认密码
 						</span>
-						<input id="_password" onblur="password_bmsg()"  type="password" class="border-0 reg-font"  placeholder="再次输入密码" />
+						<input id="_password"   type="password" class="border-0 reg-font"  placeholder="再次输入密码" />
 						<span id="i_password" class=" fl-r reg-lineh color-red">
 							
 						</span>
@@ -80,7 +81,7 @@
 							<span class="">*</span>
 							手机
 						</span>
-						<input id="_phone" onblur="phone_bmsg()" name="phone" type="text" class="border-0 reg-font"  placeholder="请输入11位手机号码" />
+						<input id="_phone"  name="phone" type="text" class="border-0 reg-font"  placeholder="请输入11位手机号码" />
 						<span id="i_phone" class=" fl-r reg-lineh color-red">
 							请输入11位手机号码
 						</span>
@@ -95,8 +96,8 @@
 					<div class="mt-10">
 						<input type="checkbox" name="agree"><span>我已阅读并同意</span><a href="">用户注册协议</a>
 					</div>
-					<input class="register mt-20" type="submit" value="立即注册">
-				</form>
+					<input id="btn" class="register mt-20" type="submit" value="立即注册">
+				<!-- </form> -->
 				</div>
 				
 				
@@ -114,6 +115,7 @@
 							已有账号？ [ <a href=""></a>登录</a> ]	 
 					</div>
 					<div class="mt-20">[ <a href=""> 加盟商申请</a> ]</div>
+					<div class="mt-20" style="background:red; text-align:center;" id="tishi"></div>
 				</div>
 			</div>
 		</div>

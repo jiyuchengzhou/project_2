@@ -5,7 +5,7 @@ let pool=mysql.createPool({
   port:'3306',
   user:'root',
   password:'',
-  database:'xz',
+  database:'klw',
   connectionLimit:15
 });
 //导出连接池对象

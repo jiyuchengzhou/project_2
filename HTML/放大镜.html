@@ -7,33 +7,43 @@
     <title>Document</title>
     <style>
         .md_400{
-            width:400px;
-            height:400px;
+            width:420px;
+            height:420px;
         }
         .bg_800{
             position:relative;
-            width:800px;
-            height:800px;
+            width:840px;
+            height:840px;
         }
         .o_hidden{
             overflow: hidden;
             display:none;
         }
         .mark{
-            width:200px;
-            height:200px;
+            width:210px;
+            height:210px;
             display: none;
             background: red;
             opacity:0.5;
             position:relative;
+            z-index:10;
+        }
+        .hidden_md{
+            position:relative;
+            z-index:20;
+            
+        }
+        .f-left{
+            float: left;
         }
     </style>
 </head>
 <body>
     <!-- 中图区 -->
-    <div class="md_400 ">
-        <img class="md_400 md_pic" src="./image/details/5de0cd8292dad.jpg" alt="">
-        <div class="mark"></div>
+    <div class="md_400 f-left">
+        <img class="md_400 md_pic f-left" src="./image/details/5de0cd8292dad.jpg" alt="">
+        <div class="hidden_md md_400"></div>
+        <div class="mark" ></div>
     </div>
     <!-- 大图区 -->
     <div class="md_400 o_hidden ">
@@ -41,25 +51,46 @@
     </div>
 </body>
 <script>
-    var md_pic=document.querySelector(".md_pic");
+    var md_pic=document.querySelector(".hidden_md");
     var bg_pic=document.querySelector(".bg_pic");
     var mark=document.querySelector(".mark");
     var bg_hidden=document.querySelector(".o_hidden")
+    md_pic.onmouseover=function(){
+        mark.style.display="block";
+        bg_hidden.style.display="block";
+    }
     md_pic.onmousemove=function(e){
         e=e || window.event;
         var md_left=e.offsetX;
         var md_top=e.offsetY;
-        bg_hidden.style.display="block";
-        console.log(md_left,md_top);
-        bg_pic.style.top="-"+md_top*2+"px";
-        bg_pic.style.left="-"+md_left*2+"px";
-        mark.style.display="block";
-        mark.style.left=md_left>100?md_left-100+"px":"0px";
-        mark.style.top=md_top>100?md_top-500+"px":"-400px";
-        console.log(bg_pic.style.top,bg_pic.style.left)
+        // bg_hidden.style.display="block";
+        // console.log(md_left,md_top);
+        bg_pic.style.top="-"+((md_top-105)*2)+"px";
+        bg_pic.style.left="-"+((md_left-105)*2)+"px";
+        // mark.style.display="block";
+        mark.style.left=md_left-105+"px";
+        mark.style.top=md_top-525+"px";
+        if(md_left<110){
+            mark.style.left="0px";
+            bg_pic.style.left="0px"
+        }else if(md_left>315){
+            mark.style.left="210px";
+            bg_pic.style.left="-420px"
+        }
+        if(md_top<110){
+            mark.style.top="-420px";
+            bg_pic.style.top="0px"
+        }else if(md_top>315){
+            mark.style.top="-210px";
+            bg_pic.style.top="-420px"
+        }
+        // mark.style.left=md_left>100?md_left-100+"px":"0px";
+        // mark.style.top=md_top>100?md_top-500+"px":"-400px";
+        // console.log(bg_pic.style.top,bg_pic.style.left)
         
     }
-    md_pic.onmouseleave=function(){
+   
+    md_pic.onmouseout=function(){
         mark.style.display="none";
         bg_hidden.style.display="none";
     }
